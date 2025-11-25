@@ -12,5 +12,31 @@ body {
 }
 
 .done {
- text-decoration: line-through;
+	text-decoration: line-through;
+}
+
+ul {
+	list-style: none;
+}
+li {
+	margin: 0.5rem;
+}
+
+button.action-done,
+button.action-delete {
+	padding: 0.3rem;
+	background: none;
+	border: solid 2px black;
+	outline: none;
+	border-radius: 0.35rem;
+	cursor: pointer;
+	margin-left: 0.4rem;
+}
+button.action-done {
+	border-color: green;
+	color: green;
+}
+button.action-delete {
+	border-color: crimson;
+	color: crimson;
 }

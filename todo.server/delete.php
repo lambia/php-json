@@ -2,21 +2,19 @@
 
 $listJSON = file_get_contents("todo.json");
 
-//POST (richiede form-data)
-// if( isset($_POST["payload"]) ) {
-	// $newTodo = $_POST["payload"];
-
 $requestBody = file_get_contents("php://input"); //lettura diretta body per JSON puro (no formdata)
 $requestJson = json_decode( $requestBody, true );
-$newTodo = $requestJson["payload"];
+$todoIndex = $requestJson["index"];
 $listArray = json_decode($listJSON, true);
 
-if( $newTodo !== null ) {
-	
-	$listArray[] = $newTodo;
+if( $todoIndex !== null && isset($listArray[$todoIndex]) ) {
+
+	array_splice($listArray, $todoIndex, 1); //rimuove 1 item all'indice specificato
 	$listJSON = json_encode($listArray);
 	file_put_contents("todo.json", $listJSON);
 }
+
+//ToDo: else return 500
 
 // Restituisce la lista aggiornata
 header("Content-Type: application/json");
