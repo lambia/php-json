@@ -1,1 +1,22 @@
-["Creare client","Creare server","Consumare web-api","Testare il tutto","Deploy"]
+[
+	{
+		"name": "Creare client",
+		"done": true
+	},
+	{
+		"name": "Creare server",
+		"done": true
+	},
+	{
+		"name": "Consumare web-api",
+		"done": false
+	},
+	{
+		"name": "Testare il tutto",
+		"done": true
+	},
+	{
+		"name": "Deploy",
+		"done": false
+	}
+]

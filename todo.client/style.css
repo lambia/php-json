@@ -10,3 +10,7 @@ body {
 	padding: 1rem;
 	font-family: sans-serif;
 }
+
+.done {
+ text-decoration: line-through;
+}
