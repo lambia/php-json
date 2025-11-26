@@ -12,6 +12,7 @@ const authHeaders = {
 	}
 };
 
+//Renderizza i todo in base all'argomento ricevuto
 function renderTodo(data) {
 	let result = "";
 
@@ -26,10 +27,12 @@ function renderTodo(data) {
 	document.getElementById("result").innerHTML = result;
 }
 
+//All'avvio della pagina recupera la lista dei dati
 axios.get(apiUrl + apiEndpoints.index, authHeaders).then(response => {
 	renderTodo(response.data);
 });
 
+//Gestisce l'aggiunta di nuovi todo (senza validazioni)
 document.getElementById("addBtn").addEventListener("click", function () {
 
 	const newTodoObj = {
@@ -55,6 +58,7 @@ document.getElementById("addBtn").addEventListener("click", function () {
 
 });
 
+//Gestisce eventi update/detele per singolo item (event delegation)
 document.querySelector("ul").addEventListener("click", function (e) {
 
 	const clickedEl = e.target;
