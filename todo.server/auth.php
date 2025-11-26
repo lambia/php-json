@@ -13,7 +13,7 @@ function checkToken($tokenToCheck) {
 		return true;
 	}
 
-	http_response_code(401);
+	http_response_code(401); //Unauthorized
 	header("Content-Type: text/plain");
 	echo "Non sei autorizzato";
 	exit;
