@@ -1,5 +1,9 @@
 <?php
 
+require_once(__DIR__ . "/auth.php");
+$token = $_SERVER["HTTP_AUTHORIZATION_TOKEN"] ?? "";
+checkToken($token);
+
 $listJSON = file_get_contents("todo.json");
 
 $requestBody = file_get_contents("php://input"); //lettura diretta body per JSON puro (no formdata)

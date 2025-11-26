@@ -6,6 +6,11 @@ const apiEndpoints = {
 	update: "update.php",
 	delete: "delete.php"
 };
+const authHeaders = {
+	headers: {
+		"Authorization-Token": "A9L4BY^6i&N4b!qJ#AeMgriQ#JeSMiQVq^Gk!3wv26kwnyoU"
+	}
+};
 
 function renderTodo(data) {
 	let result = "";
@@ -21,7 +26,7 @@ function renderTodo(data) {
 	document.getElementById("result").innerHTML = result;
 }
 
-axios.get(apiUrl + apiEndpoints.index).then(response => {
+axios.get(apiUrl + apiEndpoints.index, authHeaders).then(response => {
 	renderTodo(response.data);
 });
 
@@ -41,7 +46,7 @@ document.getElementById("addBtn").addEventListener("click", function () {
 	// 	}
 	// };
 
-	axios.post(apiUrl + apiEndpoints.create, requestData).then(response => {
+	axios.post(apiUrl + apiEndpoints.create, requestData, authHeaders).then(response => {
 
 		renderTodo(response.data);
 		document.getElementById("newTodo").value = "";
@@ -58,14 +63,14 @@ document.querySelector("ul").addEventListener("click", function (e) {
 	if (clickedEl.classList.contains("action-done")) {
 
 		const requestData = { index: clickedIndex };
-		axios.post(apiUrl + apiEndpoints.update, requestData).then(response => {
+		axios.post(apiUrl + apiEndpoints.update, requestData, authHeaders).then(response => {
 			renderTodo(response.data);
 		});
 
 	} else if (clickedEl.classList.contains("action-delete")) {
 
 		const requestData = { index: clickedIndex };
-		axios.post(apiUrl + apiEndpoints.delete, requestData).then(response => {
+		axios.post(apiUrl + apiEndpoints.delete, requestData, authHeaders).then(response => {
 			renderTodo(response.data);
 		});
 
